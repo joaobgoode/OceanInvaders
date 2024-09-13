@@ -1,0 +1,505 @@
+[gd_scene load_steps=16 format=3 uid="uid://cnqmro6a2cq47"]
+
+[ext_resource type="FontFile" uid="uid://ch103gi2tob72" path="res://Assets/fonts/andina.ttf" id="1_2ck7r"]
+[ext_resource type="Script" path="res://Scenes/ui.gd" id="1_aoblg"]
+[ext_resource type="Texture2D" uid="uid://cnnmhnkwfwjpg" path="res://Assets/sprites/Invader 1.png" id="2_m751l"]
+[ext_resource type="Texture2D" uid="uid://cjfylibcnbe7t" path="res://Assets/sprites/crab.png" id="3_u5nb8"]
+[ext_resource type="Texture2D" uid="uid://de2bshofjyp74" path="res://Assets/sprites/jelly.png" id="4_b4y72"]
+[ext_resource type="Texture2D" uid="uid://cr70nql2nb2h8" path="res://Assets/sprites/tubarao.png" id="5_s2dk1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkjcu"]
+atlas = ExtResource("2_m751l")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8hvi"]
+atlas = ExtResource("2_m751l")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5xxrj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkjcu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8hvi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gndgd"]
+atlas = ExtResource("3_u5nb8")
+region = Rect2(0, 0, 32, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5cfd"]
+atlas = ExtResource("3_u5nb8")
+region = Rect2(0, 20, 32, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_70q5n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gndgd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5cfd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ic40w"]
+atlas = ExtResource("4_b4y72")
+region = Rect2(0, 0, 25, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bem6"]
+atlas = ExtResource("4_b4y72")
+region = Rect2(25, 0, 25, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c5aqq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ic40w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bem6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_aoblg")
+
+[node name="Stats" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Stats"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.12549, 0.12549, 0.12549, 0.611765)
+
+[node name="GameOver" type="Label" parent="Stats"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 367.0
+offset_top = 113.0
+offset_right = 782.0
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_2ck7r")
+theme_override_font_sizes/font_size = 68
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Squid Kills" type="Label" parent="Stats"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 549.5
+offset_top = 223.0
+offset_right = 624.5
+offset_bottom = 255.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_2ck7r")
+theme_override_font_sizes/font_size = 24
+text = "XX
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Crab Kills" type="Label" parent="Stats"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 549.5
+offset_top = 269.0
+offset_right = 624.5
+offset_bottom = 301.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_2ck7r")
+theme_override_font_sizes/font_size = 24
+text = "XX
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Jelly Kills" type="Label" parent="Stats"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 549.5
+offset_top = 313.0
+offset_right = 624.5
+offset_bottom = 345.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_2ck7r")
+theme_override_font_sizes/font_size = 24
+text = "XX
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Shark Kills" type="Label" parent="Stats"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 549.5
+offset_top = 361.0
+offset_right = 624.5
+offset_bottom = 393.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_2ck7r")
+theme_override_font_sizes/font_size = 24
+text = "XX
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Total" type="Label" parent="Stats"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 457.5
+offset_top = 405.0
+offset_right = 532.5
+offset_bottom = 437.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_2ck7r")
+theme_override_font_sizes/font_size = 24
+text = "Total
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="New High Score" type="Label" parent="Stats"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 448.0
+offset_top = 442.5
+offset_right = 724.0
+offset_bottom = 475.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
+theme_override_fonts/font = ExtResource("1_2ck7r")
+theme_override_font_sizes/font_size = 24
+text = "★ New High Score ★
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Kills" type="Label" parent="Stats"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 549.5
+offset_top = 184.0
+offset_right = 624.5
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_2ck7r")
+theme_override_font_sizes/font_size = 24
+text = "Kills
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RunPoints" type="Label" parent="Stats"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 644.5
+offset_top = 184.0
+offset_right = 730.5
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_2ck7r")
+theme_override_font_sizes/font_size = 24
+text = "Points
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Squid Points" type="Label" parent="Stats"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 650.0
+offset_top = 223.0
+offset_right = 725.0
+offset_bottom = 255.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_2ck7r")
+theme_override_font_sizes/font_size = 24
+text = "XX
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Crab Points" type="Label" parent="Stats"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 650.0
+offset_top = 269.0
+offset_right = 725.0
+offset_bottom = 301.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_2ck7r")
+theme_override_font_sizes/font_size = 24
+text = "XX
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Jelly Points" type="Label" parent="Stats"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 650.0
+offset_top = 313.0
+offset_right = 725.0
+offset_bottom = 345.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_2ck7r")
+theme_override_font_sizes/font_size = 24
+text = "XX
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Shark Points" type="Label" parent="Stats"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 650.0
+offset_top = 361.0
+offset_right = 725.0
+offset_bottom = 393.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_2ck7r")
+theme_override_font_sizes/font_size = 24
+text = "XX
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Total Kills" type="Label" parent="Stats"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 549.5
+offset_top = 405.0
+offset_right = 624.5
+offset_bottom = 437.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_2ck7r")
+theme_override_font_sizes/font_size = 24
+text = "XX
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Total Points" type="Label" parent="Stats"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 650.0
+offset_top = 405.0
+offset_right = 725.0
+offset_bottom = 437.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_2ck7r")
+theme_override_font_sizes/font_size = 24
+text = "XX
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Squid" type="AnimatedSprite2D" parent="Stats"]
+position = Vector2(494, 240)
+sprite_frames = SubResource("SpriteFrames_5xxrj")
+autoplay = "default"
+
+[node name="Crab" type="AnimatedSprite2D" parent="Stats"]
+position = Vector2(494, 280)
+sprite_frames = SubResource("SpriteFrames_70q5n")
+autoplay = "default"
+
+[node name="Jelly" type="AnimatedSprite2D" parent="Stats"]
+position = Vector2(494, 330)
+sprite_frames = SubResource("SpriteFrames_c5aqq")
+autoplay = "default"
+
+[node name="Shark" type="Sprite2D" parent="Stats"]
+position = Vector2(494, 378)
+texture = ExtResource("5_s2dk1")
+
+[node name="Labels" type="Node" parent="."]
+
+[node name="Points" type="Label" parent="Labels"]
+unique_name_in_owner = true
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 158.0
+offset_bottom = 40.0
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("1_2ck7r")
+theme_override_font_sizes/font_size = 32
+text = "Score:"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HiScore" type="Label" parent="Labels"]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 8.0
+offset_right = 80.0
+offset_bottom = 75.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_2ck7r")
+theme_override_font_sizes/font_size = 32
+text = "Hi-Score
+XXXX"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Buttons" type="Node2D" parent="."]
+visible = false
+
+[node name="TryAgain" type="Button" parent="Buttons"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 464.0
+offset_top = 496.0
+offset_right = 712.0
+offset_bottom = 527.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_2ck7r")
+text = "Try again"
+metadata/_edit_use_anchors_ = true
+
+[node name="Back" type="Button" parent="Buttons"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 464.0
+offset_top = 536.0
+offset_right = 712.0
+offset_bottom = 567.0
+grow_vertical = 2
+text = "Voltar
+"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="visibility_changed" from="Stats" to="." method="_on_stats_visibility_changed"]
+[connection signal="pressed" from="Buttons/TryAgain" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="Buttons/Back" to="." method="_on_back_pressed"]

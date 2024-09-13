@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjurbv7r2rmmr"]
+
+[ext_resource type="Script" path="res://Scenes/bunker_tile.gd" id="1_0h6kj"]
+[ext_resource type="Texture2D" uid="uid://bcum8m64qihnj" path="res://Assets/sprites/world_tileset.png" id="2_qjbn6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_083qd"]
+size = Vector2(16, 16)
+
+[node name="BunkerTile" type="Area2D"]
+collision_layer = 16
+collision_mask = 14
+script = ExtResource("1_0h6kj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_qjbn6")
+region_enabled = true
+region_rect = Rect2(32, 16, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_083qd")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

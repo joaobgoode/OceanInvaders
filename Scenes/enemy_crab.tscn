@@ -1,0 +1,107 @@
+[gd_scene load_steps=16 format=3 uid="uid://7wfk7aosvkpx"]
+
+[ext_resource type="Texture2D" uid="uid://cjfylibcnbe7t" path="res://Assets/sprites/crab.png" id="1_skar3"]
+[ext_resource type="Texture2D" uid="uid://677ywd1kwt4q" path="res://Assets/sprites/Invaders-destroy.png" id="2_goq3b"]
+[ext_resource type="Script" path="res://Scenes/enemy.gd" id="3_w8n4m"]
+[ext_resource type="AudioStream" uid="uid://uoc3lj1hw1gm" path="res://Assets/sounds/InvaderKilled.wav" id="4_o8epi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcsao"]
+atlas = ExtResource("1_skar3")
+region = Rect2(0, 0, 32, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvwqn"]
+atlas = ExtResource("1_skar3")
+region = Rect2(0, 20, 32, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhyfd"]
+atlas = ExtResource("2_goq3b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xdbf"]
+atlas = ExtResource("2_goq3b")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xfw3"]
+atlas = ExtResource("2_goq3b")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isu20"]
+atlas = ExtResource("2_goq3b")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qxsr"]
+atlas = ExtResource("2_goq3b")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfg5a"]
+atlas = ExtResource("2_goq3b")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd72p"]
+atlas = ExtResource("2_goq3b")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5sgul"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcsao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvwqn")
+}],
+"loop": true,
+"name": &"crab move",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhyfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xdbf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xfw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isu20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qxsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfg5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd72p")
+}],
+"loop": false,
+"name": &"destroy",
+"speed": 14.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j5etw"]
+radius = 6.0
+height = 20.0
+
+[node name="EnemyCrab" type="Area2D"]
+scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 20
+script = ExtResource("3_w8n4m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5sgul")
+animation = &"destroy"
+autoplay = "crab move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_j5etw")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_o8epi")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

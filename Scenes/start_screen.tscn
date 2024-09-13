@@ -1,0 +1,692 @@
+[gd_scene load_steps=37 format=3 uid="uid://d2ov7vh67tirp"]
+
+[ext_resource type="Script" path="res://Scenes/start_screen.gd" id="1_0xtk2"]
+[ext_resource type="PackedScene" uid="uid://c1qshwgkrl6sl" path="res://Scenes/tile_map.tscn" id="2_3chlt"]
+[ext_resource type="FontFile" uid="uid://ch103gi2tob72" path="res://Assets/fonts/andina.ttf" id="2_ebsxn"]
+[ext_resource type="PackedScene" uid="uid://7wfk7aosvkpx" path="res://Scenes/enemy_crab.tscn" id="3_3tedl"]
+[ext_resource type="PackedScene" uid="uid://crew2vxu3ihip" path="res://Scenes/enemy_squid.tscn" id="4_jihxu"]
+[ext_resource type="PackedScene" uid="uid://cmr7lcxedo5s7" path="res://Scenes/enemy_jelly.tscn" id="5_gli00"]
+[ext_resource type="Texture2D" uid="uid://cr70nql2nb2h8" path="res://Assets/sprites/tubarao.png" id="6_fqjh2"]
+[ext_resource type="AudioStream" uid="uid://5hcafih2fqgw" path="res://Assets/music/time_for_adventure.mp3" id="8_k8sq1"]
+
+[sub_resource type="Animation" id="Animation_7xxgb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(482, 328)]
+}
+
+[sub_resource type="Animation" id="Animation_1jbid"]
+resource_name = "start"
+length = 3.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.23333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-64, 328), Vector2(482, 328)]
+}
+
+[sub_resource type="Animation" id="Animation_63htj"]
+resource_name = "stats"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t6trj"]
+_data = {
+"RESET": SubResource("Animation_7xxgb"),
+"start": SubResource("Animation_1jbid"),
+"stats": SubResource("Animation_63htj")
+}
+
+[sub_resource type="Animation" id="Animation_rdwpl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(482, 264)]
+}
+
+[sub_resource type="Animation" id="Animation_54u5j"]
+resource_name = "start"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-22, 264), Vector2(482, 264)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_beuru"]
+_data = {
+"RESET": SubResource("Animation_rdwpl"),
+"start": SubResource("Animation_54u5j")
+}
+
+[sub_resource type="Animation" id="Animation_eaj4d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(482, 402)]
+}
+
+[sub_resource type="Animation" id="Animation_bcy6m"]
+resource_name = "start"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-106, 402), Vector2(482, 402)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3emqy"]
+_data = {
+"RESET": SubResource("Animation_eaj4d"),
+"start": SubResource("Animation_bcy6m")
+}
+
+[sub_resource type="Animation" id="Animation_u2feh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(482, 464)]
+}
+
+[sub_resource type="Animation" id="Animation_2qfcy"]
+resource_name = "move"
+length = 3.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.73333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-148, 464), Vector2(482, 464)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gh43p"]
+_data = {
+"RESET": SubResource("Animation_u2feh"),
+"move": SubResource("Animation_2qfcy")
+}
+
+[sub_resource type="Animation" id="Animation_t331b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_svph0"]
+resource_name = "start"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rd3mv"]
+_data = {
+"RESET": SubResource("Animation_t331b"),
+"start": SubResource("Animation_svph0")
+}
+
+[sub_resource type="Animation" id="Animation_un4sg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_spw4j"]
+resource_name = "start"
+length = 3.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oltcc"]
+_data = {
+"RESET": SubResource("Animation_un4sg"),
+"start": SubResource("Animation_spw4j")
+}
+
+[sub_resource type="Animation" id="Animation_4gjed"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_njm42"]
+resource_name = "start"
+length = 3.85
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.83333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gwu5c"]
+_data = {
+"RESET": SubResource("Animation_4gjed"),
+"start": SubResource("Animation_njm42")
+}
+
+[sub_resource type="Animation" id="Animation_ur861"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_v06ir"]
+resource_name = "start"
+length = 3.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cfhr0"]
+_data = {
+"RESET": SubResource("Animation_ur861"),
+"start": SubResource("Animation_v06ir")
+}
+
+[sub_resource type="Animation" id="Animation_jnera"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_4ljye"]
+resource_name = "start"
+length = 3.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 3.33333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_avjfv"]
+_data = {
+"RESET": SubResource("Animation_jnera"),
+"start": SubResource("Animation_4ljye")
+}
+
+[node name="Start Screen" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_0xtk2")
+
+[node name="TileMap" parent="." instance=ExtResource("2_3chlt")]
+
+[node name="MarginContainer" type="Node2D" parent="."]
+
+[node name="Stats" type="Node2D" parent="MarginContainer"]
+unique_name_in_owner = true
+visible = false
+
+[node name="HighScore" type="Label" parent="MarginContainer/Stats"]
+unique_name_in_owner = true
+offset_left = 728.0
+offset_top = 536.0
+offset_right = 915.0
+offset_bottom = 587.0
+theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
+theme_override_fonts/font = ExtResource("2_ebsxn")
+theme_override_font_sizes/font_size = 24
+text = "XXX
+Hi-Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/Stats"]
+offset_left = 760.0
+offset_top = 192.0
+offset_right = 882.0
+offset_bottom = 216.0
+theme_override_fonts/font = ExtResource("2_ebsxn")
+theme_override_font_sizes/font_size = 24
+text = "Best Run"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/Stats"]
+offset_left = 960.0
+offset_top = 192.0
+offset_right = 1082.0
+offset_bottom = 216.0
+theme_override_fonts/font = ExtResource("2_ebsxn")
+theme_override_font_sizes/font_size = 24
+text = "All time"
+horizontal_alignment = 1
+
+[node name="SquidBest" type="Label" parent="MarginContainer/Stats"]
+unique_name_in_owner = true
+offset_left = 760.0
+offset_top = 256.0
+offset_right = 882.0
+offset_bottom = 280.0
+theme_override_fonts/font = ExtResource("2_ebsxn")
+theme_override_font_sizes/font_size = 24
+text = "XXX"
+horizontal_alignment = 1
+
+[node name="SquidAll" type="Label" parent="MarginContainer/Stats"]
+unique_name_in_owner = true
+offset_left = 960.0
+offset_top = 256.0
+offset_right = 1082.0
+offset_bottom = 280.0
+theme_override_fonts/font = ExtResource("2_ebsxn")
+theme_override_font_sizes/font_size = 24
+text = "XXX"
+horizontal_alignment = 1
+
+[node name="CrabBest" type="Label" parent="MarginContainer/Stats"]
+unique_name_in_owner = true
+offset_left = 760.0
+offset_top = 320.0
+offset_right = 882.0
+offset_bottom = 344.0
+theme_override_fonts/font = ExtResource("2_ebsxn")
+theme_override_font_sizes/font_size = 24
+text = "XXX"
+horizontal_alignment = 1
+
+[node name="CrabAll" type="Label" parent="MarginContainer/Stats"]
+unique_name_in_owner = true
+offset_left = 960.0
+offset_top = 320.0
+offset_right = 1082.0
+offset_bottom = 344.0
+theme_override_fonts/font = ExtResource("2_ebsxn")
+theme_override_font_sizes/font_size = 24
+text = "XXX"
+horizontal_alignment = 1
+
+[node name="JellyBest" type="Label" parent="MarginContainer/Stats"]
+unique_name_in_owner = true
+offset_left = 760.0
+offset_top = 384.0
+offset_right = 882.0
+offset_bottom = 408.0
+theme_override_fonts/font = ExtResource("2_ebsxn")
+theme_override_font_sizes/font_size = 24
+text = "XXX"
+horizontal_alignment = 1
+
+[node name="JellyAll" type="Label" parent="MarginContainer/Stats"]
+unique_name_in_owner = true
+offset_left = 960.0
+offset_top = 384.0
+offset_right = 1082.0
+offset_bottom = 408.0
+theme_override_fonts/font = ExtResource("2_ebsxn")
+theme_override_font_sizes/font_size = 24
+text = "XXX"
+horizontal_alignment = 1
+
+[node name="SharkBest" type="Label" parent="MarginContainer/Stats"]
+unique_name_in_owner = true
+offset_left = 760.0
+offset_top = 440.0
+offset_right = 882.0
+offset_bottom = 464.0
+theme_override_fonts/font = ExtResource("2_ebsxn")
+theme_override_font_sizes/font_size = 24
+text = "XXX"
+horizontal_alignment = 1
+
+[node name="SharkAll" type="Label" parent="MarginContainer/Stats"]
+unique_name_in_owner = true
+offset_left = 960.0
+offset_top = 440.0
+offset_right = 1082.0
+offset_bottom = 464.0
+theme_override_fonts/font = ExtResource("2_ebsxn")
+theme_override_font_sizes/font_size = 24
+text = "XXX"
+horizontal_alignment = 1
+
+[node name="BestKills" type="Label" parent="MarginContainer/Stats"]
+unique_name_in_owner = true
+offset_left = 760.0
+offset_top = 496.0
+offset_right = 882.0
+offset_bottom = 520.0
+theme_override_fonts/font = ExtResource("2_ebsxn")
+theme_override_font_sizes/font_size = 24
+text = "XXX"
+horizontal_alignment = 1
+
+[node name="AllKills" type="Label" parent="MarginContainer/Stats"]
+unique_name_in_owner = true
+offset_left = 960.0
+offset_top = 496.0
+offset_right = 1082.0
+offset_bottom = 520.0
+theme_override_fonts/font = ExtResource("2_ebsxn")
+theme_override_font_sizes/font_size = 24
+text = "XXX"
+horizontal_alignment = 1
+
+[node name="Allpoints" type="Label" parent="MarginContainer/Stats"]
+unique_name_in_owner = true
+offset_left = 960.0
+offset_top = 536.0
+offset_right = 1082.0
+offset_bottom = 560.0
+theme_override_fonts/font = ExtResource("2_ebsxn")
+theme_override_font_sizes/font_size = 24
+text = "XXX"
+horizontal_alignment = 1
+
+[node name="EnemyCrab" parent="." instance=ExtResource("3_3tedl")]
+position = Vector2(482, 328)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyCrab"]
+libraries = {
+"": SubResource("AnimationLibrary_t6trj")
+}
+autoplay = "start"
+
+[node name="EnemySquid" parent="." instance=ExtResource("4_jihxu")]
+position = Vector2(482, 264)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EnemySquid"]
+libraries = {
+"": SubResource("AnimationLibrary_beuru")
+}
+autoplay = "start"
+
+[node name="EnemyJelly" parent="." instance=ExtResource("5_gli00")]
+position = Vector2(482, 402)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyJelly"]
+libraries = {
+"": SubResource("AnimationLibrary_3emqy")
+}
+autoplay = "start"
+
+[node name="Tubarao" type="Sprite2D" parent="."]
+position = Vector2(482, 464)
+scale = Vector2(2, 2)
+texture = ExtResource("6_fqjh2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Tubarao"]
+libraries = {
+"": SubResource("AnimationLibrary_gh43p")
+}
+autoplay = "move"
+
+[node name="buttons" type="Node2D" parent="."]
+
+[node name="Button" type="Button" parent="buttons"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 456.0
+offset_top = 584.0
+offset_right = 646.0
+offset_bottom = 628.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_ebsxn")
+theme_override_font_sizes/font_size = 36
+text = "Play"
+
+[node name="StatsButton" type="CheckButton" parent="buttons"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 1016.0
+offset_top = 608.0
+offset_right = 1138.0
+offset_bottom = 640.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_ebsxn")
+theme_override_font_sizes/font_size = 24
+text = "Stats"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="buttons"]
+libraries = {
+"": SubResource("AnimationLibrary_rd3mv")
+}
+autoplay = "start"
+
+[node name="Labels" type="Node" parent="."]
+
+[node name="SquidLabel" type="Label" parent="Labels"]
+offset_left = 538.0
+offset_top = 256.0
+offset_right = 691.0
+offset_bottom = 280.0
+theme_override_fonts/font = ExtResource("2_ebsxn")
+theme_override_font_sizes/font_size = 24
+text = "= 30 Points"
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Labels/SquidLabel"]
+libraries = {
+"": SubResource("AnimationLibrary_oltcc")
+}
+autoplay = "start"
+
+[node name="Title" type="Label" parent="Labels"]
+offset_left = 248.0
+offset_top = 56.0
+offset_right = 896.0
+offset_bottom = 128.0
+theme_override_fonts/font = ExtResource("2_ebsxn")
+theme_override_font_sizes/font_size = 72
+text = "Ocean invaderS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Shark Label" type="Label" parent="Labels"]
+offset_left = 538.0
+offset_top = 448.0
+offset_right = 609.0
+offset_bottom = 472.0
+theme_override_fonts/font = ExtResource("2_ebsxn")
+theme_override_font_sizes/font_size = 24
+text = "= ???"
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Labels/Shark Label"]
+libraries = {
+"": SubResource("AnimationLibrary_gwu5c")
+}
+autoplay = "start"
+
+[node name="JellyLabel" type="Label" parent="Labels"]
+offset_left = 538.0
+offset_top = 384.0
+offset_right = 684.0
+offset_bottom = 408.0
+theme_override_fonts/font = ExtResource("2_ebsxn")
+theme_override_font_sizes/font_size = 24
+text = "= 10 Points"
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Labels/JellyLabel"]
+libraries = {
+"": SubResource("AnimationLibrary_cfhr0")
+}
+autoplay = "start"
+
+[node name="CrabLabel" type="Label" parent="Labels"]
+offset_left = 536.0
+offset_top = 320.0
+offset_right = 689.0
+offset_bottom = 344.0
+theme_override_fonts/font = ExtResource("2_ebsxn")
+theme_override_font_sizes/font_size = 24
+text = "= 20 Points"
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Labels/CrabLabel"]
+libraries = {
+"": SubResource("AnimationLibrary_avjfv")
+}
+autoplay = "start"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_k8sq1")
+volume_db = -13.867
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="buttons/Button" to="." method="_on_button_pressed"]
+[connection signal="toggled" from="buttons/StatsButton" to="." method="_on_stats_button_toggled"]

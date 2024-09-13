@@ -1,0 +1,105 @@
+[gd_scene load_steps=16 format=3 uid="uid://cmr7lcxedo5s7"]
+
+[ext_resource type="Texture2D" uid="uid://de2bshofjyp74" path="res://Assets/sprites/jelly.png" id="1_4ngpj"]
+[ext_resource type="Texture2D" uid="uid://677ywd1kwt4q" path="res://Assets/sprites/Invaders-destroy.png" id="2_dekm8"]
+[ext_resource type="Script" path="res://Scenes/enemy.gd" id="2_vswll"]
+[ext_resource type="AudioStream" uid="uid://uoc3lj1hw1gm" path="res://Assets/sounds/InvaderKilled.wav" id="4_4ktfy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjhvg"]
+atlas = ExtResource("2_dekm8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05oq1"]
+atlas = ExtResource("2_dekm8")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_johar"]
+atlas = ExtResource("2_dekm8")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hr76c"]
+atlas = ExtResource("2_dekm8")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1aqlr"]
+atlas = ExtResource("2_dekm8")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvyeg"]
+atlas = ExtResource("2_dekm8")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltvfs"]
+atlas = ExtResource("2_dekm8")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmcok"]
+atlas = ExtResource("1_4ngpj")
+region = Rect2(0, 0, 25, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klym2"]
+atlas = ExtResource("1_4ngpj")
+region = Rect2(25, 0, 25, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dea7t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjhvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05oq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_johar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hr76c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1aqlr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvyeg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltvfs")
+}],
+"loop": false,
+"name": &"destroy",
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmcok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klym2")
+}],
+"loop": true,
+"name": &"jelly move",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arbt4"]
+size = Vector2(15, 20)
+
+[node name="EnemyJelly" type="Area2D"]
+scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 20
+script = ExtResource("2_vswll")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dea7t")
+animation = &"jelly move"
+autoplay = "jelly move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_arbt4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4ktfy")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c63u1mpqmx261"]
+
+[ext_resource type="Script" path="res://Scenes/torpedo.gd" id="1_p47j4"]
+[ext_resource type="Texture2D" uid="uid://ik4aq3oj6q5k" path="res://Assets/sprites/Rocket.png" id="2_p7asc"]
+[ext_resource type="AudioStream" uid="uid://dap7mrl4e7llj" path="res://Assets/sounds/PlayerShooting.wav" id="3_phx5e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2tq5"]
+size = Vector2(1, 6)
+
+[node name="torpedo" type="Area2D"]
+scale = Vector2(2, 2)
+collision_layer = 4
+collision_mask = 82
+script = ExtResource("1_p47j4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -3.14159
+texture = ExtResource("2_p7asc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_c2tq5")
+
+[node name="PlayerShooting" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_phx5e")
+autoplay = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.15, 0.3)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
